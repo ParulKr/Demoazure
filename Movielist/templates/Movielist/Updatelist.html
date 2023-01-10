@@ -1,0 +1,56 @@
+{% extends 'Movielist/basic.html' %}
+{% block title %}Blood donor details{% endblock%}
+{% block css %}
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+{% endblock %}
+
+{% block body %}
+{% load static %}
+<br>
+<h1>Please Add the movie details below</h1>
+<div style="border-radius: 5px;background-color: #f2f2f2;padding: 20px;">
+  <form action="{% url 'savedata' %}" method="post">
+    {% csrf_token %}
+    <label for="fname">Movie Name</label>
+    <input type="text" id="fname" name="MovieName" placeholder="Enter the Movie name..">
+
+    <label for="lname">Budget(in cr)</label>
+    <input type="text" id="lname" name="Budget" placeholder="Enter the Budget of movie...">
+
+    <label for="imdb">IMDB rating</label>
+    <input type="text" id="imdb" name="IMDBrating" placeholder="Enter IMDB rating of movie...">
+
+    <label for="locat">Movie information</label>
+    <input type="text" id="locat" name="Movieinfo" placeholder="Please add something about movie...">
+
+    <label for="minfo">link of movie</label>
+    <input type="text" id="minfo" name="link" placeholder="Please paste the link of movie...">
+
+    <label class="required" for="id_image">Image:</label>
+    <input type="file" name="image" accept="Movielist/images" required="" id="id_image">
+
+    <input type="submit" value="Submit" >
+  </form>
+</div>
+{% endblock %}
+
+
+

@@ -1,0 +1,29 @@
+{% extends 'Movielist/basic.html' %}
+{% block title %}Blood donor list{% endblock%}
+{% block body %}
+     {% load static %}
+    <h1>LIST OF Bollywood and Hollywood movies</h1>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Movie Name</th>
+      <th scope="col">Budget</th>
+      <th scope="col">IMDB Rating</th>
+      <th scope="col">Movie Details</th>
+    </tr>
+  </thead>
+    {% for datadisplay in moviel %}
+  <tbody>
+    <tr>
+      <td> <a href="{{datadisplay.link}}" target="_blank" rel="noopener"><b><img src="/media/{{datadisplay.image}}"
+      height="200" width="400">
+        <br>
+        {{datadisplay.MovieName}}&nbsp;</b></a></td>
+      <th>{{datadisplay.Budget}}</th>
+      <td>{{datadisplay.IMDBrating}}</td>
+      <td>{{datadisplay.Movieinfo}}</td>
+    </tr>
+  </tbody>
+    {% endfor %}
+</table>
+{% endblock %}
