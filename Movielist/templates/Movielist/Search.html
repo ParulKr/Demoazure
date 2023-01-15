@@ -2,8 +2,14 @@
 {% block title %}Bollywood movie list{% endblock %}
 {% block body %}
      {% load static %}
-    <h1>LIST OF Bollywood and Hollywood movies</h1>
-  <table class="table">
+    {% if moviel|length < 1 %}
+      <p>Sorry your searched movie is not found</p>
+      Your search movie : <b>{{query}}</b> did not match with any movie. <br>
+      Suggestions :
+      <ul><li>Try with different movie name</li></ul>
+    {% else %}
+    <h1>Your Movie is here</h1>
+      <table class="table">
   <thead>
     <tr>
       <th scope="col">Movie Name</th>
@@ -26,4 +32,6 @@
   </tbody>
     {% endfor %}
 </table>
+    {% endif %}
+
 {% endblock %}

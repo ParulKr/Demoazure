@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import moviel
 
 def filldetails(request):
-    return render(request, 'Movielist/updatelist.html')
+    return render(request, 'Movielist/Updatelist.html')
 
 def Movie(request):
     movielist = moviel.objects.all()
@@ -19,3 +19,12 @@ def InsertData(request):
     movie_list=moviel(MovieName=MovieName,Budget=Budget,IMDBrating=IMDBrating,Movieinfo=Movieinfo,link=link,image=image)
     movie_list.save()
     return render(request, 'Movielist/updatelist.html')
+
+def search(request):
+    query=request.GET.get('search')
+    allPost=moviel.objects.filter(MovieName__icontains=query)
+    params={'moviel': allPost, 'query': query}
+    return render(request, 'Movielist/Search.html', params)
+
+
+
