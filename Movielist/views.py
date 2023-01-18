@@ -18,7 +18,7 @@ def InsertData(request):
     image=request.POST.get('image')
     movie_list=moviel(MovieName=MovieName,Budget=Budget,IMDBrating=IMDBrating,Movieinfo=Movieinfo,link=link,image=image)
     movie_list.save()
-    return render(request, 'Movielist/updatelist.html')
+    return render(request, 'Movielist/Updatelist.html')
 
 def search(request):
     query=request.GET.get('search')
